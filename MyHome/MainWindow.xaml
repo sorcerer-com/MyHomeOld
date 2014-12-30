@@ -1,0 +1,57 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        x:Class="MyHome.MainWindow"
+        Title="My Home" Width="640" Height="480" Icon="Images/Main.ico"
+        Closing="Window_Closing" StateChanged="Window_StateChanged">
+        
+    <Window.Background>
+        <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+            <GradientStop Color="#FF004155"/>
+            <GradientStop Color="#FF0082AA" Offset="1"/>
+        </LinearGradientBrush>
+    </Window.Background>
+
+	<Grid>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="100"/>
+			<ColumnDefinition Width="*"/>
+		</Grid.ColumnDefinitions>
+
+		<ScrollViewer VerticalScrollBarVisibility="Hidden">
+			<StackPanel Orientation="Vertical" Grid.Column="0" OpacityMask="Black">
+                <RadioButton x:Name="emulatorButton" Style="{DynamicResource MainButtonStyle}" Click="openControlButton_Click">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/Images/Main/Emulator.png" Height="24"/>
+                        <Label Content="Emulator" Foreground="{Binding (RadioButton.Foreground), RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type RadioButton}}}" VerticalAlignment="Center"/>
+                    </StackPanel>
+                </RadioButton>
+                <RadioButton x:Name="logButton" Style="{DynamicResource MainButtonStyle}" Click="openControlButton_Click">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/Images/Main/Log.png" Height="24"/>
+                        <Label Content="Log" Foreground="{Binding (RadioButton.Foreground), RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type RadioButton}}}" VerticalAlignment="Center"/>
+                    </StackPanel>
+                </RadioButton>
+                <RadioButton x:Name="homeButton" Style="{DynamicResource MainButtonStyle}" Click="openControlButton_Click">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/Images/Main/Home.png" Height="24"/>
+                        <Label Content="Home" Foreground="{Binding (RadioButton.Foreground), RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type RadioButton}}}" VerticalAlignment="Center"/>
+                    </StackPanel>
+                </RadioButton>
+                <RadioButton x:Name="televisionButton" Style="{DynamicResource MainButtonStyle}" Click="openControlButton_Click">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/Images/Main/Television.png" Height="24"/>
+                        <Label Content="TV" Foreground="{Binding (RadioButton.Foreground), RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type RadioButton}}}" VerticalAlignment="Center"/>
+                    </StackPanel>
+                </RadioButton>
+			</StackPanel>
+		</ScrollViewer>
+
+		<ContentControl x:Name="contentControl" Grid.Column="1">
+			<Label Content="My Home" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="60" FontStyle="Italic" FontWeight="Bold"/>
+        </ContentControl>
+	</Grid>
+</Window>

@@ -1,0 +1,81 @@
+﻿<UserControl x:Class="MyHome.Controls.Home"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:conv="clr-namespace:MyHome.Utils"
+             mc:Ignorable="d" 
+             d:DesignWidth="640" d:DesignHeight="480" Foreground="White">
+
+    <UserControl.Resources>
+        <conv:DrawingColorToMediaColor x:Key="drawingColorToMediaColorConverter"/>
+        <conv:ICollectionToStringConverter x:Key="collectionToStringConverter"/>
+    </UserControl.Resources>
+
+    <ScrollViewer VerticalScrollBarVisibility="Hidden">
+        <StackPanel Orientation="Vertical">
+
+            <GroupBox Header="Layout" Margin="5" Style="{DynamicResource GroupBoxStyle}" MouseLeftButtonUp="GroupBox_MouseLeftButtonUp">
+                <StackPanel Orientation="Vertical">
+                    <Image Name="layoutImage" Source="{Binding Layout}"/>
+                    <Button Content="Import Layout" Click="importLayout_Click" Style="{DynamicResource LinkButtonStyle}" HorizontalAlignment="Left"/>
+                </StackPanel>
+            </GroupBox>
+
+
+            <GroupBox Header="Rooms" Margin="5" Style="{DynamicResource GroupBoxStyle}" MouseLeftButtonUp="GroupBox_MouseLeftButtonUp">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="150"/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+
+                    <ListView ItemsSource="{Binding Rooms}" SelectedItem="{Binding SelectedRoom, Mode=TwoWay}" SelectionChanged="roomsListView_SelectionChanged"
+                              Style="{DynamicResource ListViewStyle}" Height="250" Grid.Column="0">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <Border BorderThickness="1" BorderBrush="Gray" Width="15" Height="15">
+                                        <Rectangle>
+                                            <Rectangle.Fill>
+                                                <SolidColorBrush Color="{Binding Color, Converter={StaticResource drawingColorToMediaColorConverter}}"/>
+                                            </Rectangle.Fill>
+                                        </Rectangle>
+                                    </Border>
+                                    <Label Content="{Binding Name}" Foreground="White"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                    
+                    <Rectangle Width="1" Fill="#FF32B4E6" Margin="5" Grid.Column="1"/>
+
+                    <WrapPanel Orientation="Vertical" DataContext="{Binding SelectedRoom}" MaxHeight="250" Grid.Column="2">
+                        <StackPanel Orientation="Horizontal" Margin="3">
+                            <Label Content="ID:" Foreground="White"/>
+                            <TextBox Text="{Binding Id}" Width="75" IsEnabled="False"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Margin="3">
+                            <Label Content="Name:" Foreground="White"/>
+                            <TextBox Text="{Binding Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="100"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Margin="3">
+                            <Label Content="Min:" Foreground="White"/>
+                            <TextBox Text="{Binding Min}" Width="55" IsEnabled="False"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Margin="3">
+                            <Label Content="Max:" Foreground="White"/>
+                            <TextBox Text="{Binding Max}" Width="55" IsEnabled="False"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Margin="3">
+                            <Label Content="Services:" Foreground="White"/>
+                            <TextBox Text="{Binding Services, Mode=OneWay, Converter={StaticResource collectionToStringConverter}}" MinWidth="50" IsEnabled="False"/>
+                        </StackPanel>
+                    </WrapPanel>
+                </Grid>
+            </GroupBox>
+
+        </StackPanel>
+    </ScrollViewer>
+</UserControl>

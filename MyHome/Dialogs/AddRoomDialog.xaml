@@ -1,0 +1,20 @@
+﻿<Window x:Class="MyHome.Dialogs.AddRoomDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Add Room Dialog" Background="#FF0082AA"
+        SizeToContent="WidthAndHeight" ResizeMode="CanMinimize" WindowStyle="ToolWindow"
+        KeyDown="Window_KeyDown">
+    <StackPanel Orientation="Vertical" Margin="3" MinWidth="150">
+        <Label Content="Name:"/>
+        <TextBox Name="roomNameTextBox" Text="{Binding RoomName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+        <Grid Margin="0 5 0 0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            
+            <Button Name="okButton" Content="OK" Grid.Column="0" Margin="3" Click="Button_Click"/>
+            <Button Name="cancelButton" Content="Cancel" Grid.Column="1" Margin="3" Click="Button_Click"/>
+        </Grid>
+    </StackPanel>
+</Window>

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <PreferenceCategory
+        android:title="Server">
+
+        <EditTextPreference
+            android:key="pref_server_address"
+            android:title="@string/pref_server_address"
+            android:defaultValue="192.168.0.101"/>
+
+        <EditTextPreference
+            android:key="pref_server_port"
+            android:title="@string/pref_server_port"
+            android:numeric="integer"
+            android:defaultValue="1100"/>
+
+    </PreferenceCategory>
+	
+    <PreferenceCategory
+        android:title="Location">
+
+        <CheckBoxPreference
+            android:key="pref_location_enabled"
+            android:title="@string/pref_location_enabled"
+            android:summary="@string/pref_location_enabled_desc"
+            android:defaultValue="true"/>
+		
+		<CheckBoxPreference
+			android:key="pref_location_sending"
+			android:title="@string/pref_location_sending"
+			android:summary="@string/pref_location_sending_desc"
+			android:defaultValue="false"/>
+
+        <EditTextPreference
+            android:key="pref_location_period"
+            android:title="@string/pref_location_period"
+			android:summary="@string/pref_location_period_desc"
+            android:numeric="integer"
+            android:defaultValue="15"/>
+
+        <EditTextPreference
+            android:key="pref_location_phone_number"
+            android:title="@string/pref_location_phone_number"
+			android:summary="@string/pref_location_phone_number_desc"
+            android:inputType="number"
+            android:defaultValue="+359898555415"/>
+
+        <EditTextPreference
+            android:key="pref_location_sim_serial"
+            android:title="@string/pref_location_sim_serial"
+			android:summary="@string/pref_location_sim_serial_desc"
+            android:inputType="number"
+            android:defaultValue="0"/>
+		
+	</PreferenceCategory>
+	
+
+</PreferenceScreen>

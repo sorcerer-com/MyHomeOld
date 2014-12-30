@@ -1,0 +1,51 @@
+﻿<UserControl
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:MyHome.Controls" x:Class="MyHome.Controls.Emulator" 
+             mc:Ignorable="d" 
+             d:DesignWidth="640" d:DesignHeight="480">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.3*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <local:Log Grid.Row="0"/>
+
+        <WrapPanel Grid.Row="1">
+            <GroupBox Header="Service Manager">
+                <Button Content="GetAvailableServices" Margin="5" Click="getAvailableServicesButton_Click"/>
+            </GroupBox>
+            <GroupBox Header="PC Control">
+                <WrapPanel>
+                    <Button Content="SetKey(R)" Margin="5" Click="sendKeyButton_Click"/>
+                    <Button Content="GetMousePosition" Margin="5" Click="getMousePositionButton_Click"/>
+                    <Button Content="SetMousePosition(x+10)" Margin="5" Click="setMousePositionButton_Click"/>
+                    <Button Content="SetMouseButton(Right)" Margin="5" Click="setMouseButtonButton_Click"/>
+                    <Button Content="SetMouseWheel(500)" Margin="5" Click="setMouseWheelButton_Click"/>
+                    <Button Content="GetScreenImage" Margin="5" Click="getScreenImageButton_Click"/>
+                    <Button Content="GetCameraImage" Margin="5" Click="getCameraImageButton_Click"/>
+                </WrapPanel>
+            </GroupBox>
+            <GroupBox Header="Home Control">
+                <WrapPanel>
+                    <Button Content="GetLayout" Margin="5" Click="getLayoutButton_Click"/>
+                    <Button Content="GetRooms" Margin="5" Click="getRoomsButton_Click"/>
+                </WrapPanel>
+            </GroupBox>
+            <GroupBox Header="TV Control">
+                <WrapPanel>
+                    <Button Content="GetTelevisions" Margin="5" Click="getTelevisionsButton_Click"/>
+                    <Button Content="SetRemoteControlButton(0,0)" Margin="5" Click="setRemoteControlButtonButton_Click"/>
+                    <Button Content="GetMovies" Margin="5" Click="getMoviesButton_Click"/>
+                    <Button Content="SetMovies" Margin="5" Click="setMoviesButton_Click"/>
+                    <Button Content="GetImages" Margin="5" Click="getImagesButton_Click"/>
+                    <Button Content="SetImages" Margin="5" Click="setImagesButton_Click"/>
+                </WrapPanel>
+            </GroupBox>
+        </WrapPanel>
+
+    </Grid>
+</UserControl>

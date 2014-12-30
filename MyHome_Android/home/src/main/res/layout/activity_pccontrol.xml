@@ -1,0 +1,54 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.my.home.Activities.PCControlActivity"
+    android:background="@color/pccontrol_background">
+
+	<!-- Screen/Camera View -->
+    <ImageView
+        android:id="@+id/pccontrol_screen_imageview"
+        android:contentDescription="@string/pccontrol_screenimage"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"/>
+
+	<!-- Menu -->
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom">
+		
+		<ImageView
+            android:contentDescription="@string/pccontrol_keyboard"
+			android:src="@drawable/ic_pccontrol_keyboard"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/pccontrol_button_margin"
+            android:onClick="keyboardImageView_Click"/>
+
+		<ImageView
+            android:contentDescription="@string/pccontrol_topc"
+			android:src="@drawable/ic_pccontrol_topc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/pccontrol_button_margin"/>
+
+		<CheckBox 
+			android:id="@+id/pccontrol_getscreen_checkbox"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:checked="true"
+			android:text="@string/pccontrol_getscreen"
+            android:onClick="getImageCheckBox_Click"/>
+
+		<CheckBox 
+			android:id="@+id/pccontrol_getcamera_checkbox"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:checked="false"
+			android:text="@string/pccontrol_getcamera"
+            android:onClick="getImageCheckBox_Click"/>
+			
+    </LinearLayout>
+
+</FrameLayout>

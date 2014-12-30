@@ -1,0 +1,101 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.my.home.Activities.TVControlActivity"
+    android:background="@color/tvcontrol_background"
+    android:orientation="vertical">
+	
+	<!-- Remote Control Buttons -->
+	<GridView
+		android:id="@+id/tvcontrol_gridview"
+		android:layout_width="fill_parent"
+		android:layout_height="fill_parent"
+		android:layout_weight="1"
+		android:columnWidth="90dp"
+		android:numColumns="auto_fit"
+		android:verticalSpacing="10dp"
+		android:horizontalSpacing="10dp"
+		android:stretchMode="columnWidth"/>
+		
+	<!-- Movies/Images List -->
+	<ListView
+		android:id="@+id/tvcontrol_listview"
+		android:layout_width="fill_parent"
+		android:layout_height="fill_parent"
+		android:layout_weight="1"
+		android:visibility="gone"/>
+		
+	<!-- Menu -->
+	<LinearLayout
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content">
+		
+		<ImageView
+			android:contentDescription="@string/tvcontrol_remotecontrol"
+			android:src="@drawable/ic_tvcontrol_remotecontrol"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:padding="@dimen/tvcontrol_button_margin"
+			android:onClick="menuItemImageView_Click"/>
+		
+		<ImageView
+			android:contentDescription="@string/tvcontrol_movies"
+			android:src="@drawable/ic_tvcontrol_movies"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:padding="@dimen/tvcontrol_button_margin"
+			android:onClick="menuItemImageView_Click"/>
+		
+		<ImageView
+			android:contentDescription="@string/tvcontrol_images"
+			android:src="@drawable/ic_tvcontrol_images"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:padding="@dimen/tvcontrol_button_margin"
+			android:onClick="menuItemImageView_Click"/>
+			
+	</LinearLayout>
+		
+	<!-- Control Menu -->
+	<LinearLayout
+		android:id="@+id/tvcontrol_control_menu"
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:visibility="gone">
+	
+		<ImageView
+			android:contentDescription="@string/tvcontrol_prev"
+			android:src="@drawable/ic_tvcontrol_prev"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:padding="@dimen/tvcontrol_button_margin"
+			android:onClick="menuItemImageView_Click"/>
+		
+		<ImageView
+			android:contentDescription="@string/tvcontrol_pause"
+			android:src="@drawable/ic_tvcontrol_pause"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:padding="@dimen/tvcontrol_button_margin"
+			android:onClick="menuItemImageView_Click"/>
+		
+		<ImageView
+			android:contentDescription="@string/tvcontrol_stop"
+			android:src="@drawable/ic_tvcontrol_stop"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:padding="@dimen/tvcontrol_button_margin"
+			android:onClick="menuItemImageView_Click"/>
+		
+		<ImageView
+			android:contentDescription="@string/tvcontrol_next"
+			android:src="@drawable/ic_tvcontrol_next"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:padding="@dimen/tvcontrol_button_margin"
+			android:onClick="menuItemImageView_Click"/>
+		
+	</LinearLayout>
+
+</LinearLayout>

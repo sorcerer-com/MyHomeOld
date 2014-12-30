@@ -1,0 +1,99 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.my.home.MainActivity"
+    android:background="@color/main_background">
+
+    <!-- Layout -->
+    <ImageView
+        android:id="@+id/main_imageview"
+        android:contentDescription="@string/homecontrol_layout"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" />
+
+    <!-- Main Menu -->
+	<LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+		<ImageView
+			android:src="@drawable/ic_main_plus"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:padding="@dimen/main_button_margin"
+            android:contentDescription="@string/title_activity_main"
+			android:onClick="showMenuImageView_Click"/>
+		
+		<HorizontalScrollView
+			android:layout_width="fill_parent"
+			android:layout_height="fill_parent">
+			<LinearLayout
+				android:id="@+id/main_menu_linearlayout"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:paddingLeft="@dimen/main_horizontal_margin"
+				android:paddingRight="@dimen/main_horizontal_margin"
+				android:paddingTop="@dimen/main_vertical_margin"
+				android:paddingBottom="@dimen/main_vertical_margin"
+				android:visibility="gone">
+
+				<ImageView
+					android:src="@drawable/ic_main_tvcontrol"
+					android:tag="TVControl"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:padding="@dimen/main_button_margin"
+                    android:contentDescription="@string/title_activity_tvcontrol"
+					android:onClick="menuItemImageView_Click"/>
+
+				<ImageView
+					android:src="@drawable/ic_main_pccontrol"
+					android:tag="PCControl"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:padding="@dimen/main_button_margin"
+                    android:contentDescription="@string/title_activity_pccontrol"
+					android:onClick="menuItemImageView_Click"/>
+
+				<ImageView
+					android:src="@drawable/ic_main_settings"
+					android:tag="Settings"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:padding="@dimen/main_button_margin"
+                    android:contentDescription="@string/title_activity_settings"
+					android:onClick="menuItemImageView_Click"/>
+
+				<ImageView
+					android:src="@drawable/ic_main_log"
+					android:tag="Log"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:padding="@dimen/main_button_margin"
+                    android:contentDescription="@string/title_activity_log"
+					android:onClick="menuItemImageView_Click"/>
+
+			</LinearLayout>
+		</HorizontalScrollView>
+	</LinearLayout>
+
+    <!-- Status Bar -->
+    <TextView
+        android:id="@+id/main_statusbar_textview"
+        android:textSize="@dimen/main_statusbar_textsize"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/main_statusbar_margin"
+        android:layout_gravity="bottom|left"/>
+
+    <ImageView
+        android:id="@+id/main_statusbar_imageview"
+        android:src="@drawable/ic_disconnected"
+        android:contentDescription="@string/homecontrol_connection"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/main_statusbar_margin"
+        android:layout_gravity="bottom|right"/>
+
+</FrameLayout>

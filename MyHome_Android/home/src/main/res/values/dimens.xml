@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="main_horizontal_margin">5dp</dimen>
+    <dimen name="main_vertical_margin">5dp</dimen>
+    <dimen name="main_button_margin">3dp</dimen>
+    <dimen name="main_statusbar_margin">5dp</dimen>
+    <dimen name="main_statusbar_textsize">20sp</dimen>
+	
+    <dimen name="settings_horizontal_margin">10dp</dimen>
+    <dimen name="settings_vertical_margin">10dp</dimen>
+	
+    <dimen name="pccontrol_button_margin">3dp</dimen>
+	
+    <dimen name="tvcontrol_button_margin">3dp</dimen>
+</resources>
