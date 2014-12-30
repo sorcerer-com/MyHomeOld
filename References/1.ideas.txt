@@ -1,0 +1,96 @@
+// android: on PC Control - may be functionality that allow to switch TV to PC input (from TV Control Service)
+
+
+// S E R V E R   S I D E
+Command
+* define enum with all command types
+* define arguments as list of objects that can by bytes, ints or doubles
+* serilization functions
+* deserilization functions
+
+Server
+* define thread that listen for new connection
+* define list of connected sockets
+* define thread that receive data from connected sockets
+* define event for command received
+* define Start/Stop function for the server
+* define Send function to respond(command) to set client
+
+Client
+* define Connect/Disconnect function to set address and port
+* define connection socket
+* define Send command function
+* define thread that receive data from the server
+* define event for command received
+
+
+
+Service Manager
+* register services
+* command that get all available services
+* function that grand access to the different services
+
+IService
+* define service type
+* define is available
+- define is room specified
+* define initialize function
+* define update function (for future use by temperature control, etc.)
+* define command received handler
+
+PC Control Service
+* command that set key
+* command that get mouse position
+* command that set mouse position
+* command that set mouse button
+* command that set mouse wheel
+* command that get region of the screen
++ command that get image from camera (may be support many cameras)
+- command that get sound from mic
+
+Home Control Service
+* define layout in the house
+* command that get layout
+* define rooms - name, color, position in layout and services available in it (every room can has different services)
+* command that get rooms and their properties
+- define Arduinos, ports, settings, etc.
+- functionality that detect where are the people
+
+TV Control Service
++ define televisions and which Arduino (device/port) control them
+* define selected channel, input, etc. for every televisions
+* command that get televisions and their properties
+* remote control functionality
+++ define remote control buttons (name / ir signal)
+-- may be define remote control layout
+++ command that get buttons(idx) and layout
+** command that set button (send signal to Arduino)
+* movie functionality (Android: may be add some search functionality)
+** functionality that search and get information for movies in set default folder (movie name, subtitles, length) sorted alphabetically
+** command that get list of the movies information
+** command that start set movie (if TV is on tuner input than change it to PC and start the movie)
+** command that control media player - previous, play, pause, stop, next
++ images functionality
+** functionality that search and get folders with images in set default folder
+++ command that get list of the images information (may be with thumbnail)
+** command that show set image
+** command that control images preview - previous, play, pause, stop, next
+
+Light Control Service
+- define lights and which Arduino (device/port) control them
+- define functionality (software and hardware) that get information about rooms lighting
+- define rules when they should go on/off - on update (day/night cicle, person in/out, transition times, colors)
+- command that get lights and their properties (they have properties?)
+- command that set lights color (RGB)
+
+Tempreture Control Service
+
+Alarm Service
+
+Sound Control Service
+
+Calendar Service - remainders for appointmant, alarms
+
+Curtains Service
+
+Android: Missed Calls Service - like the app
